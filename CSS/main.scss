@@ -1,15 +1,16 @@
 /* --- CSS Variables --- */
 :root {
-    --primary-color: #0056b3; /* Deeper blue for main accents and buttons */
-    --secondary-color: #e9f5ff; /* Lighter, more airy blue background for sections */
-    --text-color: #212529; /* Darker grey for main text, improved contrast */
-    --light-text-color: #495057; /* Slightly darker grey for secondary text */
+    --primary-color: #3478c2; /* Deeper and more muted blue for main accents */
+    --primary-color-hover: #2b64a2; /* Darker shade of primary blue for hover states */
+    --secondary-color: #f0f5f9; /* Soft light gray/blue background for sections */
+    --text-color: #333f4a; /* Darker but soft gray for main text */
+    --light-text-color: #5a6775; /* Lighter gray for secondary text */
     --background-color: #ffffff; /* White background */
     --font-family-heading: 'Montserrat', sans-serif; /* New font for headings */
     --font-family-body: 'Open Sans', sans-serif; /* New font for body text */
-    --border-radius: 8px; /* Slightly larger border radius for softer look */
-    --box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Softer, more compact shadow */
-    --hover-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Stronger hover shadow for more pop */
+    --border-radius: 10px; /* Increased border-radius for a softer look */
+    --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Soft but noticeable shadow */
+    --hover-shadow: 0 16px 35px rgba(0, 0, 0, 0.15); /* More pronounced hover shadow */
 }
 
 /* --- Base Styles & Reset --- */
@@ -54,7 +55,7 @@ a {
 }
 
 a:hover {
-    color: darken(var(--primary-color), 10%); /* Darker on hover */
+    color: var(--primary-color-hover); /* Using the new hover variable */
 }
 
 /* --- Header Styles --- */
@@ -137,7 +138,7 @@ a:hover {
 }
 
 .cta-button:hover {
-    background-color: darken(var(--primary-color), 10%); /* Darker blue on hover */
+    background-color: var(--primary-color-hover); /* Using the new hover variable */
     transform: translateY(-2px); /* More pronounced lift on hover */
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3); /* Stronger hover shadow */
 }
@@ -187,7 +188,7 @@ a:hover {
     color: rgba(255, 255, 255, 0.95);
 }
 
-/* --- Sections Styles --- */
+/* --- Section Styles --- */
 .services-section, .why-us-section, .testimonials-section {
     padding: 90px 0; /* More padding between sections */
     text-align: center;
@@ -202,7 +203,7 @@ a:hover {
 }
 
 .testimonials-section {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, lighten(var(--secondary-color), 3%) 100%); /* Subtle gradient for testimonials */
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #ebf2f8 100%); /* Subtle gradient for testimonials */
 }
 
 
@@ -236,15 +237,15 @@ a:hover {
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.2); /* Much stronger hover shadow */
 }
 
-/* Removed specific icon styling for service cards */
-/* .service-card .icon, .benefit-card .icon {
-    font-size: 3.5rem;
+/* Specific styling for benefit card icons only, as service card icons are removed from HTML */
+.benefit-card .icon {
+    font-size: 3.5rem; /* Larger icons */
     color: var(--primary-color);
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* More margin below icon */
     display: block;
-    height: 60px;
-    line-height: 60px;
-} */
+    height: 60px; /* Reserved space for icons */
+    line-height: 60px; /* Vertical centering for icon */
+}
 
 
 .service-card h3, .benefit-card h3 {
@@ -293,7 +294,7 @@ a:hover {
 .contact-section {
     padding: 90px 0; /* More vertical padding for a spacious look */
     text-align: center;
-    background: linear-gradient(135deg, var(--primary-color) 0%, darken(var(--primary-color), 5%) 100%); /* Deep blue gradient background */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-hover) 100%); /* Deep blue gradient background */
     color: white; /* White text for contrast */
 }
 
@@ -383,7 +384,7 @@ a:hover {
 }
 
 .submit-button:hover {
-    background-color: darken(var(--primary-color), 10%); /* Darker blue on hover */
+    background-color: var(--primary-color-hover); /* Using the new hover variable */
     transform: translateY(-4px); /* More pronounced lift on hover */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Even stronger shadow on hover */
 }
@@ -400,7 +401,7 @@ a:hover {
 
 .footer .container {
     display: flex;
-    flex-direction: row; /* Default row for larger screens */
+    flex-direction: row; /* Row by default for larger screens */
     justify-content: space-between;
     align-items: center;
 }
@@ -479,6 +480,7 @@ a:hover {
     }
 
     .services-grid, .benefits-grid {
+        display: grid;
         grid-template-columns: 1fr; /* Stack cards on small screens */
         gap: 25px;
     }
@@ -558,3 +560,4 @@ a:hover {
     }
 }
 
+/*# sourceMappingURL=styles.css.map */
