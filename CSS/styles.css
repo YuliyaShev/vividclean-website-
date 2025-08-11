@@ -122,8 +122,36 @@ a:hover {
     padding: 10px 20px; /* Reduced padding */
     border-radius: var(--border-radius);
     font-weight: 600;
+    position: relative; /* Essential for pseudo-element positioning */
+    overflow: hidden; /* Crucial to hide the dot until it grows within the button */
+    z-index: 1; /* Ensures text is above the dot */
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: var(--box-shadow); /* Add shadow to button */
+}
+
+.cta-button span { /* Styling for the text inside the button */
+    position: relative;
+    z-index: 2; /* Ensures text is above the growing dot */
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white dot */
+    border-radius: 50%;
+    transform: translate(-50%, -50%); /* Center the dot */
+    transition: width 0.4s ease-out, height 0.4s ease-out, background-color 0.3s ease;
+    z-index: 0; /* Ensures dot is behind text */
+}
+
+.cta-button:hover::before {
+    width: 200%; /* Make it grow much larger than the button */
+    height: 200%;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly more transparent when fully grown */
 }
 
 .cta-button:hover {
@@ -412,7 +440,7 @@ a:hover {
     }
 
     .hero-section p {
-        font-size: 1rem; /* Adjusted for mobile */
+        font-size: 1.1rem; /* Adjusted for mobile */
     }
 
     .services-grid, .benefits-grid {
