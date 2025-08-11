@@ -311,13 +311,13 @@ a:hover {
     padding: 45px; /* Increased padding inside the form for a more premium feel */
     background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white background for the form itself */
     border-radius: var(--border-radius);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* Very strong, deep shadow for a floating, premium effect */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* Very strong, deep shadow for a floating effect */
     border: none;
     position: relative;
     overflow: hidden;
 }
 
-/* Subtle border/glow for the form */
+/* Adding a subtle gradient overlay or border effect to the form itself */
 .contact-form::before {
     content: '';
     position: absolute;
@@ -326,15 +326,16 @@ a:hover {
     width: 100%;
     height: 100%;
     border-radius: var(--border-radius);
+    /* Subtle gradient border effect or inner glow */
     background: linear-gradient(45deg, var(--primary-color) 0%, rgba(255,255,255,0) 100%);
     opacity: 0.1; /* More noticeable subtle gradient */
     z-index: 0;
-    pointer-events: none;
+    pointer-events: none; /* Ensure it doesn't block interactions */
 }
 
 .form-group {
     margin-bottom: 30px; /* More space between form elements */
-    position: relative;
+    position: relative; /* For label/input positioning if needed */
 }
 
 .form-group label {
