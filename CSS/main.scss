@@ -395,46 +395,45 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 80px 0;
-    background-color: var(--background-color);
+    padding: 0; /* Removed padding to make it truly full width */
+    background-color: var(--primary-color); /* Set background to primary color */
+    min-height: 50vh; /* Ensure it takes up significant vertical space */
+    overflow: hidden; /* Important for full width animations */
+    position: relative;
 }
 
 .card-effect {
-    background: var(--background-color); /* White background for the card */
-    border-radius: 2rem;
-    box-shadow: var(--box-shadow); /* Use our defined shadow */
+    background: var(--primary-color); /* Match section background */
+    border-radius: 0; /* No border radius for full width effect */
+    box-shadow: none; /* No shadow needed for full width background effect */
     overflow: hidden;
-    position: relative; /* Essential for positioning inner elements */
-    width: 30rem; /* Fixed width as per original code */
-    height: 30rem; /* Fixed height as per original code */
-    display:flex;
+    position: absolute; /* Position absolutely to fill section */
+    inset: 0; /* Make it fill the parent section */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height of its parent section */
+    display:flex; /* Center content (dots) if any */
     align-items:center;
     justify-content:center;
-    margin: 20px; /* Add some margin around the card */
+    margin: 0; /* No margin */
 
-    &__img-content {
-        position: relative;
-        z-index: 1; /* Ensure image content is above grid effect */
-        pointer-events: none; /* Allows interaction with grid tiles underneath */
-    }
-
-    &__img-content img {
-        width: 10rem; /* Image size as per original */
-        display: block;
-        margin: 0 auto;
-    }
+    /* Removed &__img-content related styles as image is gone */
 
     &__grid-effect {
         position: absolute;
-        z-index: 0; /* Ensures grid is behind image/text */
-        inset: 0; /* Fills the entire parent card */
+        z-index: 0; /* Ensures grid is behind any potential text if added later */
+        inset: 0; /* Fills the entire parent card-effect */
         display: grid;
-        grid-template-columns: repeat(10, 1fr); /* 10 columns */
-        grid-template-rows: repeat(10, 1fr); /* 10 rows */
+        grid-template-columns: repeat(auto-fit, minmax(2.5rem, 1fr)); /* More dense grid, adjustable */
+        grid-template-rows: repeat(auto-fit, minmax(2.5rem, 1fr)); /* More dense grid, adjustable */
+        width: 100%;
+        height: 100%;
 
         &-tile {
             position: relative;
             cursor: pointer; /* Indicate it's interactive */
+            display: flex; /* For centering dot within tile */
+            justify-content: center;
+            align-items: center;
 
             &::before {
                 content: '';
@@ -445,19 +444,20 @@ a:hover {
                 height: 0.3rem; /* Small initial dot size */
                 width: 0.3rem;
                 border-radius: 50%;
-                background: var(--primary-color); /* Use our primary color for dots */
+                background: rgba(255, 255, 255, 0.6); /* Lighter, semi-transparent white dots */
                 transition: 500ms linear all;
                 /* SCSS loop for box-shadow based on user's original code */
+                /* The color of these shadows will be inherited from the dot background */
                 $bxs: 0 0 0;
                 $gap: 3rem;
-                $coef: -0.3rem;
+                $coef: -0.3rem; /* Creates a tight, smaller shadow */
                 @for $i from 1 through 4 {
                     $bxs: $bxs + #{','}$i * $gap 0 0 $i *$coef#{','}$i * -$gap 0 0 $i *$coef#{','} 0 $i *-$gap 0 $i *$coef#{','} 0 $i *$gap 0 $i *$coef;
                     @for $j from 1 through 4 {
                         $bxs: $bxs + #{','}$i * $gap $j * $gap 0 $i*$j*1.5 *$coef#{','}$i * $gap $j * -$gap 0 $i*$j*1.5 *$coef#{','}$i * -$gap $j * $gap 0 $i*$j*1.5 *$coef#{','}$i * -$gap $j * -$gap 0 $i*$j*1.5 *$coef;
                     }
                 }
-                box-shadow: #{$bxs}; /* Interpolate SCSS variable */
+                box-shadow: #{$bxs} rgba(255, 255, 255, 0.1); /* Explicitly set shadow color as light transparent white */
             }
 
             &:hover {
@@ -517,8 +517,9 @@ a:hover {
     }
 
     .card-effect { /* Adjust card size for mobile */
-        width: 25rem;
-        height: 25rem;
+        /* For mobile, if fixed width was 30rem, it might be too big. */
+        /* Now that it's 100%, this will adapt naturally */
+        min-height: 40vh; /* Adjust height for mobile */
     }
 }
 
@@ -549,12 +550,6 @@ a:hover {
     }
 
     .card-effect { /* Further adjust card size for very small mobiles */
-        width: 100%; /* Full width */
-        height: 20rem; /* Fixed height */
-        border-radius: 1rem;
-    }
-
-    .card-effect__img-content img {
-        width: 8rem; /* Smaller image on mobile */
+        min-height: 30vh; /* Adjust height for very small mobile */
     }
 }

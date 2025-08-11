@@ -101,14 +101,36 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Interactive Grid Dot Effect Section (User's requested effect) -->
     <section id="interactive-grid-effect" class="grid-dot-section">
         <div class="card-effect">
-            <div class="card-effect__img-content">
-                <img src="https://placehold.co/100x100/0056B3/FFFFFF?text=Click+Me!" alt="Placeholder Image">
-            </div>
             <div class="card-effect__grid-effect">
                 <!-- 100 tiles for the grid effect -->
+                <!-- The loop from SCSS generates these, but HTML needs them for the effect -->
+                <!-- Keeping them explicit here for clarity, though in larger projects, JS might generate them -->
+                <a href="#" class="card-effect__grid-effect-tile"></a>
                 <a href="#" class="card-effect__grid-effect-tile"></a>
                 <a href="#" class="card-effect__grid-effect-tile"></a>
                 <a href="#" class="card-effect__grid-effect-tile"></a>
