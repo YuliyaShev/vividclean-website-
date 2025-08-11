@@ -1,0 +1,464 @@
+/* --- CSS Variables --- */
+:root {
+  --primary-color: #0056b3; /* Deeper blue for main accents and buttons */
+  --secondary-color: #e9f5ff; /* Lighter, more airy blue background for sections */
+  --text-color: #212529; /* Darker grey for main text, improved contrast */
+  --light-text-color: #495057; /* Slightly darker grey for secondary text */
+  --background-color: #ffffff; /* White background */
+  --font-family-heading: "Montserrat", sans-serif; /* New font for headings */
+  --font-family-body: "Open Sans", sans-serif; /* New font for body text */
+  --border-radius: 6px; /* Slightly smaller border radius */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer, more compact shadow */
+  --hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Softer hover shadow */
+}
+
+/* --- Base Styles & Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scroll for anchor links */
+}
+
+body {
+  font-family: var(--font-family-body); /* Apply new body font */
+  line-height: 1.5; /* Slightly tighter line height */
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.container {
+  max-width: 1000px; /* Slightly narrower max-width for overall compactness */
+  margin: 0 auto;
+  padding: 0 15px; /* Reduced horizontal padding */
+}
+
+h1, h2, h3 {
+  font-family: var(--font-family-heading); /* Apply new heading font */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.4em; /* Reduced margin below headings */
+}
+
+p {
+  margin-bottom: 0.8em; /* Reduced margin below paragraphs */
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* --- Header Styles --- */
+.header {
+  background-color: var(--background-color);
+  padding: 15px 0; /* Reduced vertical padding */
+  border-bottom: 1px solid #e9ecef;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); /* Subtle shadow for header */
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-family-heading); /* Apply heading font to logo */
+  font-weight: 700;
+  font-size: 1.5rem; /* Slightly smaller logo font */
+  color: var(--primary-color);
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav li {
+  margin-left: 20px; /* Slightly less spacing */
+}
+
+.nav a {
+  font-weight: 600;
+  color: var(--text-color);
+  padding: 5px;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+  -webkit-transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+  left: 0;
+  background: var(--primary-color);
+}
+
+.cta-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px; /* Reduced padding */
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: var(--box-shadow); /* Add shadow to button */
+}
+
+.cta-button:hover {
+  background-color: #004499; /* Darker blue on hover */
+  transform: translateY(-1px); /* Slight lift on hover */
+  box-shadow: var(--hover-shadow);
+}
+
+/* --- Hero Section Styles --- */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1581578731548-a937a0c00e52?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 90px 15px; /* Reduced vertical and horizontal padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh; /* Slightly smaller min-height */
+  position: relative;
+  overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35); /* Slightly lighter overlay for better text contrast */
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+  max-width: 700px; /* Slightly narrower text area for headline */
+}
+
+.hero-section h1 {
+  font-size: 3rem; /* Slightly smaller, impactful headline */
+  color: white; /* Ensure headline is white */
+  margin-bottom: 15px; /* Reduced margin */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Softer text shadow */
+}
+
+.hero-section p {
+  font-size: 1.2rem; /* Slightly smaller sub-headline */
+  max-width: 600px;
+  margin: 0 auto 30px; /* Reduced margin */
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- Services & Benefits Sections --- */
+.services-section, .why-us-section {
+  padding: 70px 0; /* Reduced padding between sections */
+  text-align: center;
+  background-color: var(--secondary-color); /* Apply secondary color */
+}
+
+.why-us-section {
+  background-color: var(--background-color); /* Alternate background for why us */
+}
+
+.services-section h2, .why-us-section h2, .testimonials-section h2, .contact-section h2 {
+  font-family: var(--font-family-heading); /* Apply heading font */
+  font-size: 2rem; /* Slightly smaller section titles */
+  margin-bottom: 40px; /* Reduced space below titles */
+  color: var(--primary-color); /* Titles in primary color */
+}
+
+.services-grid, .benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Slightly smaller min-width for mobile */
+  gap: 25px; /* Reduced gap */
+  margin-top: 20px; /* Reduced margin */
+}
+
+.service-card, .benefit-card {
+  background-color: var(--background-color); /* White background for cards */
+  padding: 30px 20px; /* Reduced padding */
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--box-shadow); /* Softer shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.04); /* Subtle border for definition */
+}
+
+.service-card:hover, .benefit-card:hover {
+  transform: translateY(-5px); /* Less lift on hover */
+  box-shadow: var(--hover-shadow); /* Softer hover hover */
+}
+
+.service-card .icon, .benefit-card .icon {
+  font-size: 3rem; /* Slightly smaller icons */
+  color: var(--primary-color);
+  margin-bottom: 15px; /* Reduced margin */
+  /* Placeholder for actual icons like Font Awesome */
+  display: block;
+  height: 50px; /* Reserve space for icons */
+  line-height: 50px; /* Center icon vertically */
+}
+
+.service-card h3, .benefit-card h3 {
+  font-family: var(--font-family-heading); /* Apply heading font */
+  font-size: 1.2rem; /* Slightly smaller heading */
+  margin-bottom: 8px; /* Reduced margin */
+  color: var(--text-color);
+}
+
+.service-card p, .benefit-card p {
+  font-family: var(--font-family-body); /* Apply body font */
+  color: var(--light-text-color);
+  font-size: 0.9rem; /* Slightly smaller paragraph text */
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+  padding: 70px 0; /* Reduced padding */
+  background-color: var(--secondary-color); /* Use secondary color for background */
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  font-family: var(--font-family-heading); /* Apply heading font */
+  font-size: 2rem;
+  margin-bottom: 40px; /* Reduced margin */
+  color: var(--primary-color);
+}
+
+.testimonial-card {
+  max-width: 700px; /* Slightly narrower testimonial cards */
+  margin: 0 auto 20px; /* Reduced margin */
+  padding: 30px; /* Reduced padding */
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  position: relative;
+}
+
+.testimonial-card p {
+  font-family: var(--font-family-body); /* Apply body font */
+  font-style: italic;
+  color: var(--light-text-color);
+  font-size: 1rem; /* Slightly smaller testimonial text */
+  margin-bottom: 15px; /* Reduced margin */
+}
+
+.client-name {
+  font-family: var(--font-family-body); /* Apply body font */
+  margin-top: 10px; /* Reduced margin */
+  font-weight: 700; /* Bolder client name */
+  color: var(--text-color);
+}
+
+/* --- Contact Section Styles (Restored and Enhanced) --- */
+.contact-section {
+  padding: 80px 0; /* More vertical padding for a spacious look */
+  text-align: center;
+  background-color: var(--secondary-color); /* Use a complementary background color */
+  color: var(--text-color);
+}
+
+.contact-section h2 {
+  font-family: var(--font-family-heading);
+  font-size: 2.2rem; /* Slightly larger heading */
+  margin-bottom: 50px; /* More space below the heading */
+  color: var(--primary-color);
+}
+
+.contact-form {
+  max-width: 650px; /* Slightly wider form */
+  margin: 0 auto;
+  text-align: left;
+  padding: 40px; /* Increased padding inside the form */
+  background-color: var(--background-color); /* White background for the form itself */
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More prominent and softer shadow */
+  border: 1px solid #e0e0e0; /* Subtle border for definition */
+}
+
+.form-group {
+  margin-bottom: 25px; /* Increased space between form elements */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px; /* Space below label */
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 1.1rem; /* Slightly larger label font */
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px; /* Increased padding for inputs */
+  border: 1px solid #ced4da; /* A bit darker border for inputs */
+  border-radius: var(--border-radius);
+  font-family: var(--font-family-body);
+  font-size: 1.05rem; /* Slightly larger input font */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color); /* Highlight border on focus */
+  box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.25); /* Stronger, primary color glow on focus */
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 16px 25px; /* Generous padding for button */
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  font-size: 1.2rem; /* Larger font size for button */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow for button */
+}
+
+.submit-button:hover {
+  background-color: #004499; /* Darker blue on hover */
+  transform: translateY(-2px); /* More pronounced lift on hover */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+}
+
+/* --- Footer Styles --- */
+.footer {
+  background-color: var(--text-color);
+  color: white;
+  padding: 40px 0; /* Reduced padding */
+  text-align: center;
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: row; /* Default row for larger screens */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.85rem; /* Slightly smaller font size */
+}
+
+.social-links a {
+  color: white;
+  margin-left: 20px; /* Reduced spacing */
+  font-size: 1rem; /* Slightly smaller social links */
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
+
+/* --- Responsive Design (Mobile First) --- */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+  }
+  .nav ul {
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  .nav li {
+    margin: 10px 0;
+  }
+  .cta-button {
+    margin-top: 15px;
+    width: 100%;
+  }
+  .hero-section h1 {
+    font-size: 2rem; /* Adjusted for mobile */
+  }
+  .hero-section p {
+    font-size: 1.1rem; /* Adjusted for mobile */
+  }
+  .services-grid, .benefits-grid {
+    grid-template-columns: 1fr; /* Stack cards on small screens */
+  }
+  .footer .container {
+    flex-direction: column;
+  }
+  .social-links {
+    margin-top: 20px;
+  }
+  .social-links a {
+    margin: 0 10px;
+  }
+  .contact-section { /* Adjust contact section padding for mobile */
+    padding: 60px 0;
+  }
+  .contact-form {
+    padding: 30px; /* Adjust form padding for mobile */
+  }
+}
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 60px 15px; /* More compact on smaller mobiles */
+  }
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+  .hero-section p {
+    font-size: 0.9rem;
+  }
+  .services-section, .why-us-section, .testimonials-section, .contact-section {
+    padding: 40px 15px; /* Further reduce padding */
+  }
+  .service-card, .benefit-card, .testimonial-card, .contact-form {
+    padding: 20px; /* Further reduce padding for cards and form */
+  }
+  .form-group {
+    margin-bottom: 20px; /* Reduce space */
+  }
+  .form-group label {
+    font-size: 1rem; /* Adjusted font size */
+  }
+  .form-group input,
+  .form-group textarea {
+    padding: 12px; /* Adjusted padding */
+    font-size: 0.95rem; /* Adjusted font size */
+  }
+  .submit-button {
+    padding: 14px; /* Adjusted padding */
+    font-size: 1.1rem; /* Adjusted font size */
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

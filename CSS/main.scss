@@ -122,12 +122,9 @@ a:hover {
     padding: 10px 20px; /* Reduced padding */
     border-radius: var(--border-radius);
     font-weight: 600;
-    /* Removed position, overflow, z-index related to growing dot effect */
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: var(--box-shadow); /* Add shadow to button */
 }
-
-/* Removed .cta-button span and ::before pseudo-elements */
 
 .cta-button:hover {
     background-color: #004499; /* Darker blue on hover */
@@ -217,7 +214,7 @@ a:hover {
 
 .service-card:hover, .benefit-card:hover {
     transform: translateY(-5px); /* Less lift on hover */
-    box-shadow: var(--hover-shadow); /* Softer hover shadow */
+    box-shadow: var(--hover-shadow); /* Softer hover hover */
 }
 
 .service-card .icon, .benefit-card .icon {
@@ -283,59 +280,60 @@ a:hover {
     color: var(--text-color);
 }
 
-/* --- Contact Section --- */
+/* --- Contact Section Styles (Restored and Enhanced) --- */
 .contact-section {
-    padding: 70px 0; /* Reduced padding */
+    padding: 80px 0; /* More vertical padding for a spacious look */
     text-align: center;
-    background-color: var(--background-color); /* Consistent background */
+    background-color: var(--secondary-color); /* Use a complementary background color */
+    color: var(--text-color);
 }
 
 .contact-section h2 {
-    font-family: var(--font-family-heading); /* Apply heading font */
-    font-size: 2rem;
-    margin-bottom: 40px; /* Reduced margin */
+    font-family: var(--font-family-heading);
+    font-size: 2.2rem; /* Slightly larger heading */
+    margin-bottom: 50px; /* More space below the heading */
     color: var(--primary-color);
 }
 
 .contact-form {
-    max-width: 600px; /* Slightly narrower form */
+    max-width: 550px; /* Adjusted to be slightly narrower */
     margin: 0 auto;
     text-align: left;
-    padding: 25px; /* Reduced padding */
-    background-color: var(--secondary-color); /* Form background */
+    padding: 35px; /* Adjusted padding inside the form */
+    background-color: var(--background-color); /* White background for the form itself */
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More prominent and softer shadow */
+    border: 1px solid #e0e0e0; /* Subtle border for definition */
 }
 
 .form-group {
-    margin-bottom: 20px; /* Reduced space between form elements */
+    margin-bottom: 22px; /* Adjusted space between form elements */
 }
 
 .form-group label {
-    font-family: var(--font-family-body); /* Apply body font */
     display: block;
-    margin-bottom: 5px; /* Reduced space below label */
+    margin-bottom: 7px; /* Adjusted space below label */
     font-weight: 600;
     color: var(--text-color);
-    font-size: 1rem; /* Slightly smaller label font */
+    font-size: 1.05rem; /* Slightly larger label font */
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px; /* Reduced padding for inputs */
-    border: 1px solid #c9d6e4; /* Softer border color */
+    padding: 14px; /* Adjusted padding for inputs */
+    border: 1px solid #ced4da; /* A bit darker border for inputs */
     border-radius: var(--border-radius);
-    font-family: var(--font-family-body); /* Apply body font */
-    font-size: 0.95rem; /* Slightly smaller input font */
+    font-family: var(--font-family-body);
+    font-size: 1rem; /* Slightly larger input font */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2); /* Softer focus ring effect */
+    border-color: var(--primary-color); /* Highlight border on focus */
+    box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.25); /* Stronger, primary color glow on focus */
 }
 
 .submit-button {
@@ -343,21 +341,22 @@ a:hover {
     width: 100%;
     background-color: var(--primary-color);
     color: white;
-    padding: 15px; /* Reduced padding for submit button */
+    padding: 15px 22px; /* Adjusted padding for button */
     border: none;
     border-radius: var(--border-radius);
     font-weight: 700;
-    font-size: 1.1rem; /* Slightly smaller font size for button */
+    font-size: 1.15rem; /* Slightly adjusted font size for button */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow for button */
 }
 
 .submit-button:hover {
-    background-color: #004499;
-    transform: translateY(-1px);
-    box-shadow: var(--hover-shadow);
+    background-color: #004499; /* Darker blue on hover */
+    transform: translateY(-2px); /* More pronounced lift on hover */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
 }
+
 
 /* --- Footer Styles --- */
 .footer {
@@ -389,88 +388,6 @@ a:hover {
 .social-links a:hover {
     color: var(--primary-color);
 }
-
-/* --- Grid Dot Effect Section (User's requested effect) --- */
-.grid-dot-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0; /* Removed padding to make it truly full width */
-    background-color: var(--primary-color); /* Set background to primary color */
-    min-height: 50vh; /* Ensure it takes up significant vertical space */
-    overflow: hidden; /* Important for full width animations */
-    position: relative;
-}
-
-.card-effect {
-    background: var(--primary-color); /* Match section background */
-    border-radius: 0; /* No border radius for full width effect */
-    box-shadow: none; /* No shadow needed for full width background effect */
-    overflow: hidden;
-    position: absolute; /* Position absolutely to fill section */
-    inset: 0; /* Make it fill the parent section */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height of its parent section */
-    display:flex; /* Center content (dots) if any */
-    align-items:center;
-    justify-content:center;
-    margin: 0; /* No margin */
-
-    /* Removed &__img-content related styles as image is gone */
-
-    &__grid-effect {
-        position: absolute;
-        z-index: 0; /* Ensures grid is behind any potential text if added later */
-        inset: 0; /* Fills the entire parent card-effect */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(2.5rem, 1fr)); /* More dense grid, adjustable */
-        grid-template-rows: repeat(auto-fit, minmax(2.5rem, 1fr)); /* More dense grid, adjustable */
-        width: 100%;
-        height: 100%;
-
-        &-tile {
-            position: relative;
-            cursor: pointer; /* Indicate it's interactive */
-            display: flex; /* For centering dot within tile */
-            justify-content: center;
-            align-items: center;
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                height: 0.3rem; /* Small initial dot size */
-                width: 0.3rem;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.6); /* Lighter, semi-transparent white dots */
-                transition: 500ms linear all;
-                /* SCSS loop for box-shadow based on user's original code */
-                /* The color of these shadows will be inherited from the dot background */
-                $bxs: 0 0 0;
-                $gap: 3rem;
-                $coef: -0.3rem; /* Creates a tight, smaller shadow */
-                @for $i from 1 through 4 {
-                    $bxs: $bxs + #{','}$i * $gap 0 0 $i *$coef#{','}$i * -$gap 0 0 $i *$coef#{','} 0 $i *-$gap 0 $i *$coef#{','} 0 $i *$gap 0 $i *$coef;
-                    @for $j from 1 through 4 {
-                        $bxs: $bxs + #{','}$i * $gap $j * $gap 0 $i*$j*1.5 *$coef#{','}$i * $gap $j * -$gap 0 $i*$j*1.5 *$coef#{','}$i * -$gap $j * $gap 0 $i*$j*1.5 *$coef#{','}$i * -$gap $j * -$gap 0 $i*$j*1.5 *$coef;
-                    }
-                }
-                box-shadow: #{$bxs} rgba(255, 255, 255, 0.1); /* Explicitly set shadow color as light transparent white */
-            }
-
-            &:hover {
-                &::before {
-                    height: 3rem; /* Larger dot size on hover */
-                    width: 3rem;
-                    transition: 70ms linear all; /* Faster transition on hover */
-                }
-            }
-        }
-    }
-}
-
 
 /* --- Responsive Design (Mobile First) --- */
 @media (max-width: 768px) {
@@ -516,10 +433,11 @@ a:hover {
         margin: 0 10px;
     }
 
-    .card-effect { /* Adjust card size for mobile */
-        /* For mobile, if fixed width was 30rem, it might be too big. */
-        /* Now that it's 100%, this will adapt naturally */
-        min-height: 40vh; /* Adjust height for mobile */
+    .contact-section { /* Adjust contact section padding for mobile */
+        padding: 60px 0;
+    }
+    .contact-form {
+        padding: 25px; /* Adjusted form padding for mobile */
     }
 }
 
@@ -537,19 +455,26 @@ a:hover {
     }
 
     .services-section, .why-us-section, .testimonials-section, .contact-section {
-        padding: 50px 15px;
-    }
-
-    .services-section h2, .why-us-section h2, .testimonials-section h2, .contact-section h2 {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
+        padding: 40px 15px; /* Further reduce padding */
     }
 
     .service-card, .benefit-card, .testimonial-card, .contact-form {
-        padding: 20px 15px;
+        padding: 18px; /* Further reduce padding for cards and form */
     }
 
-    .card-effect { /* Further adjust card size for very small mobiles */
-        min-height: 30vh; /* Adjust height for very small mobile */
+    .form-group {
+        margin-bottom: 18px; /* Reduce space */
+    }
+    .form-group label {
+        font-size: 0.95rem; /* Adjusted font size */
+    }
+    .form-group input,
+    .form-group textarea {
+        padding: 10px; /* Adjusted padding */
+        font-size: 0.9rem; /* Adjusted font size */
+    }
+    .submit-button {
+        padding: 12px; /* Adjusted padding */
+        font-size: 1rem; /* Adjusted font size */
     }
 }
